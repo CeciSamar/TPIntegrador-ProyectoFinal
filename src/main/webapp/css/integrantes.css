@@ -1,0 +1,69 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color:antiquewhite;
+}
+
+.contenedor {
+    max-width: 50%;
+    margin: 50px auto;
+    text-align: center;
+}
+
+h1 {
+    color: blue;
+    font-size: 50px;
+}
+
+h1:hover {
+    cursor: pointer;
+    color: black;
+}
+
+h2 {
+    color:salmon;
+    font-size: 36px;
+}
+
+h2:hover {
+    cursor: pointer;
+    color:cadetblue;
+}
+
+.lista-integrantes {
+    list-style: none;
+    padding: 0;
+    overflow: hidden; /* Oculta el contenido que se desborda */
+}
+
+.integrante {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 50px;
+    font-size: 24px;
+    display: block;
+    cursor: pointer;
+    animation: slideTopBottom 10s linear infinite;  /* tarda 10 segundos en pasar todos los nombres */
+}
+
+@keyframes slideTopBottom {
+    0%, 100% {
+        transform: translateY(-458%);
+    }
+    25% {
+        transform: translateY(0);
+    }
+   /* 50%, 100% {
+        transform: translateY(442%);
+    } */
+}
+
+.footer-boxes {
+    display: flex;
+    justify-content: space-around;
+    background-color: #333;
+    padding: 20px 0;
+}
