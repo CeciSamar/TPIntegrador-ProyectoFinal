@@ -74,8 +74,43 @@
     min-height: 95vh;
 }
 
-/* ****** SECCION MITAD IMG, MITAD TEXTO ****** */
+/* ******************************************************************* */
+/* Estilos para la sección de "Otros links" */
+.otros-links {
+    text-align: center;
+    background-color: white;
+    padding: 20px; /* Añade relleno para mayor claridad */
+    margin-bottom: 26px;
+}
 
+/* Estilos para el título "Otros links" */
+.otros-links h2 {
+   /* margin-bottom: 20px; /* Añade margen inferior para separar el título de los enlaces */
+    margin: 30px 0px;
+    color: black; /* Color del texto del título */
+}
+
+/* Estilos para cada enlace */
+.otros-links a {
+    display: block;
+    padding: 10px;
+    border: 1px solid grey;
+    text-decoration: none; /* Elimina el subrayado predeterminado de los enlaces */
+    color: blue; /* Color del texto */
+    background-color: rgb(178, 193, 193);
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+/* Estilos para el hover de los enlaces */
+.otros-links a:hover {
+    background-color: lightskyblue;
+}
+
+
+
+/* ******************************************** */
+/* ****** SECCION MITAD IMG, MITAD TEXTO ****** */
 .bg-aside1 {
     background: #333a40;
     padding: 2rem;

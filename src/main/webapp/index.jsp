@@ -109,6 +109,32 @@
         </div>
 
 
+
+        <section class="otros-links">
+            <div class="container">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-md-2">
+                        <h2>Otros links:</h2>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <a href="mostrar-tickets.jsp" class="otros-box" title="Listado de ventas de tickets" target="_blank">Venta de Tickets</a>
+                            </div>
+                            <div class="col-md-4">
+                                <a href="usuarios.jsp" class="otros-box" title="Listado de usuarios registrados" target="_blank">Usuarios Registrados</a>
+                            </div>
+                            <div class="col-md-4">
+                                <a href="integrantes.jsp" class="otros-box" title="Personas que integraron la construcción del proyecto"  target="_blank">Integrantes</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
         <section class="container mb-4" id="oradores">
             <h2 class="titulo-gral">Conoce a los <span>oradores</span></h2>
             <div class="row justify-content-center">
@@ -186,7 +212,7 @@
                        se refiere al area urbana en la costa sureste de la isla de Oahu, la ciudad y el condado de Honolulu han
                        formado una ciudad-condado consolidada que cubre toda la ciudad (aproximadamente 600 km2 de superficie).
                     </p>
-                    <a class="btn btn-outline-light" href="#">Conocé más</a>
+                    <a class="btn btn-outline-light" href="./link-footer/masdebsas.jsp" target="_blank">Conocé más</a>
                     <br><br>
                     <div class="mapa">
                         <iframe id="mapa-bsas" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.0168881863056!2d-58.384145323430566!3d-34.60373445750052!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4aa9f0a6da5edb%3A0x11bead4e234e558b!2sObelisco!5e0!3m2!1ses-419!2sar!4v1701486787473!5m2!1ses-419!2sar"
@@ -208,12 +234,13 @@
             });
         </script>
 
+
         <section class="container" id="form-orador">
             <div class="row justify-content-center">
                 <div class="col-lg-8 col-xl-7">
                     <h2 class="titulo-gral">Conviértete en un <span>orador</span></h2>
                     <p class="text-center">Anótate como orador para dar una <abbr title="attribute">charla ignite</abbr>. Cuéntanos de qué quieres hablar!</p>
-                    <form action="">
+                    <form action="https://formsubmit.co/jle36@hotmail.com" method="POST" target="_blank">
                         <div class="row gx-2">
                             <div class="col-md mb-3">
                                 <input class="form-control" type="text" placeholder="Nombre" aria-label="Nombre" required>
@@ -233,7 +260,7 @@
                                 </textarea>
                                 <div id="emailHelp" class="form-text mb-3">Recuerda incluir un título para tu charla.</div>
                                 <div class="d-grid">
-                                    <button type="submit" class="btn btn-lg btn-form" onclick="enviarFormulario()">Enviar</button>
+                                    <button type="submit" class="btn btn-lg btn-form" title="Clic para enviar el mail">Enviar</button>
                                 </div>
                             </div>
                         </div>
@@ -245,8 +272,6 @@
     </main>
 
     <jsp:include page="footer.jsp"/>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
 </body>
 </html>

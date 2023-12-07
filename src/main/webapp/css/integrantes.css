@@ -60,10 +60,3 @@ h2:hover {
         transform: translateY(442%);
     } */
 }
-
-.footer-boxes {
-    display: flex;
-    justify-content: space-around;
-    background-color: #333;
-    padding: 20px 0;
-}

@@ -1,0 +1,83 @@
+/* Reset de estilos */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 10;
+    padding: 0;
+    max-width: 100%;
+    background-color: antiquewhite;
+}
+
+h1 {
+    color: blue;
+    font-size: 50px;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #0066cc;
+    color: #fff;
+}
+
+/* Estilo para hover sobre las filas */
+tr:hover {
+    background-color: rgb(245, 245, 245);
+}
+
+/* Estilo para las filas impares */
+tr:nth-child(odd) {
+    background-color: rgb(191, 188, 188);
+}
+
+.email-cell {
+    font-family: 'Arial', sans-serif; /* Cambia la fuente según tus preferencias */
+    color: transparent; /* Hace que el texto sea transparente */
+    text-shadow: 0 0 5px #000; /* Agrega un sombreado para ocultar el texto */
+}
+
+/* Alineación a la derecha para campos numéricos */
+.tickets, .cantidad, .total {
+    text-align: right;
+}
+
+
+/* Estilo para campos específicos */
+.tickets {
+    width: 3rem; /* Ancho más angosto para id_tickets */
+    text-align: right;
+}
+
+.apellido, .nombre {
+    width: 6rem; /* Ancho más ancho para apellido y nombre */
+}
+.cantidad {
+    width: 2rem; /* Ancho más angosto para cantidad */
+}
+
+.total {
+    width: 9rem;
+}
+
+/* Estilo para el texto de la fila de suma total - QUE NO RESPONDE*/
+.text-total {
+    text-align: center;
+    color: blue;
+    font-size: 1.3rem;
+}
+
+.total-gral {
+    text-align: right;
+    color: blue;
+    font-size: 1.3rem;
+}

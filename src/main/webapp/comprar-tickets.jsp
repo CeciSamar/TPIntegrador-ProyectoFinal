@@ -87,13 +87,13 @@
                 <div class="form-group">
                     <label for="total"></label>
                     <input type="number" id="total" placeholder="0" disabled>
-                    <!-- <input type="text" id="total" placeholder="Total a pagar: $" disabled style="background-color: #bcebf1; color: #000080; border: none; height: 46px; font-size: 18px; padding-left: 14px;"> -->
                 </div>
             </div>
 
             <div class="form-row form-group-buttons">
                 <button type="submit" class="btn btn-success">Borrar</button>
-                <button type="reset" class="btn btn-success">Grabar</button>
+                <button type="submit" class="btn btn-success">Grabar Ticket</button>
+            <!-- <input type="submit" class="btn btn-lg btn-form" value="Registrarse"> -->
             </div>
         </form>
     </div>

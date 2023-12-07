@@ -2,10 +2,8 @@
 <!doctype html>
 <html lang="es">
     <jsp:include page="head.jsp"/>
-<body style="background-color: antiquewhite;">
-
+<body style="background-color: rgb(223, 234, 247);">
     <main>
-
         <section class="container" id="form-orador">
             <div class="row justify-content-center">
                 <div class="col-lg-8 col-xl-7">
@@ -23,8 +21,11 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col mb-3">
-                                <input type="email" class="form-control" placeholder="Email" aria-label="Email" name="email" id="mail" required>
+                            <div class="col-md mb-3">
+                                <input type="text" class="form-control" placeholder="Telefono" aria-label="Telefono" name="telefono" id="telefono" required>
+                            </div>
+                            <div class="col-md mb-3">
+                                <input type="email" class="form-control" placeholder="Email" aria-label="Email" name="email" id="email" required>
                             </div>
                         </div>
                         <div class="row">
@@ -44,8 +45,9 @@
                 </div>
             </div>
         </section>
+
         <div class="text-center">
-            <p style="color: white">Ó</p>
+            <p style="color: black">Ó</p>
         </div>
         <form class="container" action="login.jsp">
             <article class="text-center mt-4">
