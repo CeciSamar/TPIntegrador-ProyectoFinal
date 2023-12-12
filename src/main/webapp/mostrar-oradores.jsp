@@ -1,27 +1,35 @@
-<!DOCTYPE html>
+<%@ page import="java.math.BigDecimal" %>
 <%@ page import="java.sql.*" %>
 <%@ page import="java.util.logging.*" %>
+<%@ page import="java.text.SimpleDateFormat" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
+<%@ page import="java.text.SimpleDateFormat" %>
+<%!
+    // Función para formatear fechas
+    private String formatDate(Timestamp timestamp) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return (timestamp != null) ? sdf.format(timestamp) : "";
+    }
+%>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/usuarios.css">
-    <link rel="shortcut icon" type="Imagen" href="./img/usuario.png">
-    <title>Usuarios Registrados</title>
+    <link rel="stylesheet" href="./css/mostrar-oradores.css">
+    <link rel="shortcut icon" type="Imagen" href="./img/estudiantes.png">
+    <title>Futuros Oradores</title>
 </head>
 
 <body>
-    <h1>Usuarios Registrados</h1>
+    <h1>Futuros Oradores</h1>
     <table border="2">
         <tr>
-            <th>ID</th>
+            <th>Id</th>
             <th>Apellido</th>
             <th>Nombre</th>
-            <th>Telefono</th>
             <th>Email</th>
-            <th>Password</th>
+            <th>Temario</th>
+            <th>Fecha Envio</th>
         </tr>
 
         <%
@@ -31,23 +39,23 @@
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cac23546?useSSL=false", "root", "root");
                 Statement stmt = con.createStatement();
-                ResultSet rs = stmt.executeQuery("SELECT * FROM USERS");
+                ResultSet rs = stmt.executeQuery("SELECT * FROM oradores");
 
                 int rowCount = 0;
                 while (rs.next()) {
                     rowCount++;
         %>
                     <tr>
-                        <td><%= rs.getInt("id") %></td>
+                        <td class="id_orador"><%= rs.getInt("id_orador") %></td>
                         <td><%= rs.getString("apellido") %></td>
                         <td><%= rs.getString("nombre") %></td>
-                        <td class="telefono-cell"><%= rs.getString("telefono") %></td>
-                        <td><%= rs.getString("email") %></td>
-                        <td class="password-cell"><%= rs.getString("password") %></td>
+                        <td class="email-cell"><%= rs.getString("email") %></td>
+                        <td class="temario"><%= rs.getString("temario") %></td>
+                        <td class="fecha"><%= formatDate(rs.getTimestamp("fechaenvio")) %></td>
                     </tr>
         <%
                 }
-                logger.info("Número de filas recuperadas: " + rowCount);
+                logger.info("Numero de filas recuperadas");
 
                 rs.close();
                 stmt.close();
@@ -57,13 +65,5 @@
             }
         %>
     </table>
-    <script>   <!-- para mostrar una mascara de asteriscos en el campo password-->
-        var passwordCells = document.getElementsByClassName("password-cell");
-        for (var i = 0; i < passwordCells.length; i++) {
-            var originalText = passwordCells[i].innerText;
-            var maskedText = "*".repeat(originalText.length);
-            passwordCells[i].innerText = maskedText;
-        }
-    </script>
 </body>
 </html>

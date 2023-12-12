@@ -2,7 +2,7 @@
 <!doctype html>
 <html lang="es">
 <head>
-    <jsp:include page="head.jsp"/>
+   <!-- <jsp:include page="head.jsp"/> -->
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -47,31 +47,31 @@
 
     <!-- FORMULARIO -->
     <div class="form-container">
-        <form>
+        <form action="RegisterTickets" method="post">
             <div class="form-row">
                 <div class="form-group">
                     <label for="nombre"></label>
-                    <input type="text" id="nombre" placeholder="Nombre">
+                    <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
                 </div>
                 <div class="form-group">
                     <label for="apellido"></label>
-                    <input type="text" id="apellido" placeholder="Apellido">
+                    <input type="text" id="apellido" name="apellido" placeholder="Apellido" required>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group">
                     <label for="correo"></label>
-                    <input type="email" id="correo" placeholder="Correo">
+                    <input type="email" id="correo" name="correo" placeholder="Correo" required>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group">
                     <label for="cantidad">Cantidad:</label>
-                    <input type="number" id="cantidad" placeholder="Cantidad" min="1" step="1">
+                    <input type="number" id="cantidad" name="cantidad" placeholder="Cantidad" required min="1" step="1">
                 </div>
                 <div class="form-group">
                     <label for="categoria">Categoría:</label>
-                    <select id="categoria">
+                    <select id="categoria" name="categoria">
                         <option value="opcion1">Estudiante</option>
                         <option value="opcion2">Trainee</option>
                         <option value="opcion3">Junior</option>
@@ -86,19 +86,19 @@
                 </div>
                 <div class="form-group">
                     <label for="total"></label>
-                    <input type="number" id="total" placeholder="0" disabled>
+                    <input type="number" id="total" name="total" placeholder="0">
                 </div>
             </div>
 
             <div class="form-row form-group-buttons">
-                <button type="submit" class="btn btn-success">Borrar</button>
+                <button type="reset" class="btn btn-success">Borrar</button>
                 <button type="submit" class="btn btn-success">Grabar Ticket</button>
             <!-- <input type="submit" class="btn btn-lg btn-form" value="Registrarse"> -->
             </div>
         </form>
     </div>
 
-    <jsp:include page="footer.jsp"/>
-    <script src="./js/comprar-tickets.js"></script>           <!-- Agrego esta línea que llama al codigo js-->
+    <!-- <jsp:include page="footer.jsp"/> -->
+    <script src="./js/comprar-tickets.js"></script>        <!-- Agrego esta línea que llama al codigo js-->
 </body>
 </html>

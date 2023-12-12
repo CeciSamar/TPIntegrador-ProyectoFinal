@@ -23,7 +23,12 @@
         }
 
         .bsas {
-            margin-right: 1rem;
+            margin-right: 1.2rem;
+            transition: 0.4s;
+        }
+
+        .bsas:hover {
+           transform: scale(1.2);
         }
 
         footer {
@@ -41,7 +46,6 @@
         <h2>Como mas informacion tenemos:</h2>
         <img class="bsas" src="../img/bsas1.jpg" alt="bsas1" width="210" height="200">
         <img class="bsas" src="../img/bsas2.jpg" alt="bsas2" width="210" height="200">
-        <img class="bsas" src="../img/bsas3.jpg" alt="bsas3" width="210" height="200">
         <img class="bsas" src="../img/bsas4.jpg" alt="bsas4" width="210" height="200">
         <img class="bsas" src="../img/bsas5.jpg" alt="bsas5" width="210" height="200">
         <img class="bsas" src="../img/bsas6.jpg" alt="bsas6" width="210" height="200">

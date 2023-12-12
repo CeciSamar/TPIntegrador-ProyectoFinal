@@ -3,13 +3,19 @@ body {
     margin: 10;
     padding: 0;
     max-width: 100%;
-    background-color: antiquewhite;
+    background-color: rgb(220, 246, 242);
 }
 
 h1 {
-    color: rgb(253,138,106);
+    color: rgb(92, 52, 140);
     font-size: 50px;
     text-align: center;
+    background-color: rgb(220, 246, 242);
+    margin: 0;
+    padding: 20px; /* Ajusta este valor según sea necesario para mantener el espacio */
+    position: sticky;
+    top: 0;
+    z-index: 2;
 }
 
 table {
@@ -24,7 +30,6 @@ th, td {
     text-align: left;
     border-bottom: 1px solid #ddd;
 }
-
 th {
     background-color: #3498db;
     color: white;
@@ -40,10 +45,10 @@ tr:nth-child(even) {
     background-color: #e6e6e6;
 }
 
-.telefono-cell {
-    font-family: 'Arial', sans-serif; /* Cambia la fuente según tus preferencias */
-    color: transparent; /* Hace que el texto sea transparente */
-    text-shadow: 0 0 6px #000; /* Agrega un sombreado para ocultar el texto */
+.email-cell {
+    font-family: 'Arial', sans-serif;
+    color: transparent;
+    text-shadow: 0 0 5px #000;
 }
 
 tr:nth-child(odd) {

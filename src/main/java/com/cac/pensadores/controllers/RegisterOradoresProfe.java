@@ -13,8 +13,9 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-@WebServlet("/register")
-public class RegisterController extends HttpServlet {
+@WebServlet("/index")
+public class RegisterOradoresProfe extends HttpServlet {
+
     private static final long serialVersionUID = 1L;
 
     /**
@@ -24,9 +25,8 @@ public class RegisterController extends HttpServlet {
 
         String inombre   = request.getParameter("nombre");
         String iapellido = request.getParameter("apellido");
-        String itelefono = request.getParameter("telefono");
         String iemail    = request.getParameter("email");
-        String ipassword = request.getParameter("password");
+        String itemario  = request.getParameter("temario");
         RequestDispatcher disp = null;
         Connection con = null;
 
@@ -37,13 +37,12 @@ public class RegisterController extends HttpServlet {
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cac23546?useSSL=false", "root", "root");
 
             // pasa los datos a la BD para ser agregados a la tabla.
-            final String STATEMENT = "INSERT INTO users (nombre, apellido, telefono, email, password) VALUES (?, ?, ?, ?, ?)";
+            final String STATEMENT = "INSERT INTO cac23546.oradores (nombre, apellido, email, temario) VALUES (?, ?, ?, ?)";
             PreparedStatement pst = con.prepareStatement(STATEMENT);
             pst.setString(1, inombre);
             pst.setString(2, iapellido);
-            pst.setString(3, itelefono);
-            pst.setString(4, iemail);
-            pst.setString(5, ipassword);
+            pst.setString(3, iemail);
+            pst.setString(4, itemario);
 
             int rowCount = pst.executeUpdate();
             disp = request.getRequestDispatcher("login.jsp");
@@ -55,13 +54,11 @@ public class RegisterController extends HttpServlet {
 
             disp.forward(request, response);
 
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         } finally {
             try {
-                if(con != null) {
-                    con.close();
-                }
+                con.close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }

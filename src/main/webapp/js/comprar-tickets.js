@@ -51,7 +51,9 @@ document.addEventListener('DOMContentLoaded', function () {
         // Actualiza el valor en el campo "Total a Pagar"
         // totalInput.value = `$${precioFinal.toFixed(2)}`;
         totalInput.value = precioFinal.toFixed(2);
+        console.log('Valor total actualizado:', totalInput.value);
     }
+
 
     // Asocia eventos "input" a los campos para realizar validaciones en tiempo real
     nombreInput.addEventListener('input', calcularPrecio);

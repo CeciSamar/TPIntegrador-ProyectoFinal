@@ -10,7 +10,7 @@
                 <img src="./img/codoacodo.png" alt="codo">
                 <h1 style="color: black; margin-top: auto; margin-bottom: 50px;">Iniciar Sesión</h1>
             </div>
-            <form action="login" method="post">
+            <form action="login.jsp" method="post">
 
                 <div class="row">
                     <div class="col mb-3">
@@ -34,6 +34,7 @@
             <form class="container" action="register.jsp">
                 <article class="text-center mt-4">
                     <input type="submit" class="btn btn-lg btn-form" value="Registrarse">
+
                 </article>
             </form>
 

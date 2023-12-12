@@ -1,6 +1,5 @@
 package com.cac.pensadores.controllers;
 
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -8,68 +7,100 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-
-@WebServlet("/comprar-tickets")
+@WebServlet("/RegisterTickets")
 public class RegisterTickets extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        String inombre    = request.getParameter("nombre");
-        String iapellido  = request.getParameter("apellido");
-        String iemail     = request.getParameter("email");
-        String icantidad  = request.getParameter("cantidad");
-        String icategoria = request.getParameter("categoria");
-        String itotal     = request.getParameter("total");
-        RequestDispatcher disp = null;
-        Connection con1 = null;
-
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
 
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            // conectandose a la base de datos
-            con1 = DriverManager.getConnection("jdbc:mysql://localhost:3306/cac23546?useSSL=false", "root", "root");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Resultado del Registro</title>");
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h2>Resultado del Registro Venta de Tickets</h2>");
 
-            // pasa los datos a la BD para ser agregados a la tabla.
-            final String STATEMENT = "INSERT INTO ventatickets (nombre, apellido, email, cantidad, categoria, total) VALUES (?, ?, ?, ?, ?, ?)";
-            PreparedStatement pst = con1.prepareStatement(STATEMENT);
-            pst.setString(1, inombre);
-            pst.setString(2, iapellido);
-            pst.setString(3, iemail);
-            pst.setString(4, icantidad);
-            pst.setString(5, icategoria);
-            pst.setString(6, itotal);
+            // Mensaje inicial
+            out.println("<p style='color: blue;'>Iniciando proceso de registro de tickets...</p>");
 
-            int rowCount = pst.executeUpdate();
+            String nombre    = request.getParameter("nombre");
+            out.println("<p style='color: blue;'>Paso el de nombre...</p>");
+            String apellido  = request.getParameter("apellido");
+            out.println("<p style='color: blue;'>Paso el de apellido...</p>");
+            String email     = request.getParameter("email");
+            out.println("<p style='color: blue;'>Paso el de mail...</p>");
+            int cantidad     = Integer.parseInt(request.getParameter("cantidad"));
+            out.println("<p style='color: blue;'>Paso el de cantidad...</p>");
+            String categoria = request.getParameter("categoria");
+            out.println("<p style='color: blue;'>Paso el de categoria...</p>");
+            out.println("<p style='color: blue;'>ANTES DE TOTAL...</p>");
+            out.println("<p style='color: blue;'>" + request.getParameter("total") + "</p>");
+            float total      = Float.parseFloat(request.getParameter("total"));
+            out.println("<p style='color: blue;'>Paso el de total...</p>");
 
-            disp = request.getRequestDispatcher("comprar-tickets.jsp");  // para que se quede en la misma pagina
-            if (rowCount > 0) {
-                request.setAttribute("status", "success");
-            } else {
-                request.setAttribute("status", "failed");
+            Connection connection = null;
+            out.println("<p style='color: blue;'>Despues de Connection connection = null...</p>");
+
+            try {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                // Conectarse a la base de datos
+                out.println("<p style='color: blue;'>Conectándose a la base de datos...</p>");
+                connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/cac23546?useSSL=false", "root", "root");
+
+                // Insertar datos en la tabla
+                out.println("<p style='color: blue;'>Insertando datos en la tabla oradores...</p>");
+                final String STATEMENT = "INSERT INTO cac23546.ventatickets (nombre, apellido, email, cantidad, categoria, total) VALUES (?, ?, ?, ?, ?, ?)";
+
+                out.println("<p style='color: blue;'>Luego de final String STATEMENT, osea el INSERT...</p>");
+                PreparedStatement pst = connection.prepareStatement(STATEMENT);
+                out.println("<p style='color: blue;'>Luego de connetion.prepareStatement...</p>");
+                pst.setString(1, nombre);
+                pst.setString(2, apellido);
+                pst.setString(3, email);
+                pst.setInt(4, cantidad);
+                pst.setString(5, categoria);
+                pst.setFloat(6, total);
+
+                out.println("<p style='color: pink;'>Antes del executeUdate + pst.getResultSet()</p>");
+                int rowCount = pst.executeUpdate();
+
+                if (rowCount > 0) {
+                    out.println("<p style='color: green;'>Registro exitoso.</p>");
+                    request.setAttribute("status", "success");
+                } else {
+                    out.println("<p style='color: red;'>Fallo en el registro.</p>");
+                    request.setAttribute("status", "failed");
+                }
+
+            } catch (SQLException | ClassNotFoundException e) {
+                e.printStackTrace();
+                out.println("<p style='color: red;'>Error: " + e.getMessage() + "</p>");
+            } finally {
+                try {
+                    if (connection != null) {
+                        connection.close();
+                    }
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             }
 
-            disp.forward(request, response);
+            response.sendRedirect("RegisterTickets?comprar-tickets");
 
-        } catch (Exception e) {
-            e.printStackTrace();
+            out.println("</body");
+            out.println("</html>");
 
         } finally {
-            try {
-                con1.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            out.close();
         }
-
     }
-
 }

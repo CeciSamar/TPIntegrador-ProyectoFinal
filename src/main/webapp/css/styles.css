@@ -49,7 +49,13 @@
     display: block;
     font-weight: 700;
     font-size: 2.2rem;
-} 
+}
+
+/* sino responde como hasta ahora 08/12/2023 el max-hight, sacarlo */
+#myCarousel {
+    max-width: 100%;
+    max-height: 100%;
+}
 
 /* ********** EL FAMOSO CAROUSEL ********* */
 .bg-carousel-ba1 { background-image: url(../img/ba1-min.jpg); }
@@ -85,16 +91,15 @@
 
 /* Estilos para el título "Otros links" */
 .otros-links h2 {
-   /* margin-bottom: 20px; /* Añade margen inferior para separar el título de los enlaces */
     margin: 30px 0px;
-    color: black; /* Color del texto del título */
+    color: rgb(28, 13, 37); /* Color del texto del título */
 }
 
 /* Estilos para cada enlace */
 .otros-links a {
     display: block;
     padding: 10px;
-    border: 1px solid grey;
+    border: 1px dashed grey;
     text-decoration: none; /* Elimina el subrayado predeterminado de los enlaces */
     color: blue; /* Color del texto */
     background-color: rgb(178, 193, 193);
@@ -102,11 +107,15 @@
     border-radius: 20px;
 }
 
+/* Agrega estilos para hacer las columnas más angostas */
+.custom-narrow-col {
+    flex: 0 0 20%;
+}
+
 /* Estilos para el hover de los enlaces */
 .otros-links a:hover {
     background-color: lightskyblue;
 }
-
 
 
 /* ******************************************** */
@@ -128,6 +137,13 @@
 #exampleFormControlTextarea1 {
     min-height: 200px;
     max-height: 200px;
+}
+
+/* ***** Mensaje de que se grabo correcto el formulario oradores ****** */
+.orador-exitoso {
+    text-align: right;
+    color: blue;
+    font-size: 1.5rem;
 }
 
 

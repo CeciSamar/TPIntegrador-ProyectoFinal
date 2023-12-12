@@ -114,18 +114,21 @@
             <div class="container">
                 <div class="row justify-content-center align-items-center">
                     <div class="col-md-2">
-                        <h2>Otros links:</h2>
+                        <h2>Otros Links:</h2>
                     </div>
                     <div class="col-md-10">
                         <div class="row">
-                            <div class="col-md-4">
-                                <a href="mostrar-tickets.jsp" class="otros-box" title="Listado de ventas de tickets" target="_blank">Venta de Tickets</a>
+                            <div class="col-md-4 custom-narrow-col">
+                                <a href="integrantes.jsp" class="otros-box" title="Personas que integraron la construcción del proyecto"  target="_blank">Integrantes</a>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-4 custom-narrow-col">
                                 <a href="usuarios.jsp" class="otros-box" title="Listado de usuarios registrados" target="_blank">Usuarios Registrados</a>
                             </div>
-                            <div class="col-md-4">
-                                <a href="integrantes.jsp" class="otros-box" title="Personas que integraron la construcción del proyecto"  target="_blank">Integrantes</a>
+                            <div class="col-md-4 custom-narrow-col">
+                                <a href="mostrar-oradores.jsp" class="otros-box" title="Personas que quieren ser Oradores"  target="_blank">Futuros Oradores</a>
+                            </div>
+                            <div class="col-md-4 custom-narrow-col">
+                                <a href="mostrar-tickets.jsp" class="otros-box" title="Listado de ventas de tickets" target="_blank">Venta de Tickets</a>
                             </div>
                         </div>
                     </div>
@@ -207,7 +210,7 @@
                 </div>
                 <div class="col-md text-light bg-aside1">
                     <h2>Bs As - Octubre</h2>
-                    <p>Buenos Aires es la provincia y localidad mas grande del estado de Argentina, en los Estado Unidos,
+                    <p class="text-honolulu">Buenos Aires es la provincia y localidad mas grande del estado de Argentina, en los Estado Unidos,
                        Honolulu es la más sureña de entre las principales ciudades estadounidenses. Aunque el nombre de Honolulu
                        se refiere al area urbana en la costa sureste de la isla de Oahu, la ciudad y el condado de Honolulu han
                        formado una ciudad-condado consolidada que cubre toda la ciudad (aproximadamente 600 km2 de superficie).
@@ -216,7 +219,7 @@
                     <br><br>
                     <div class="mapa">
                         <iframe id="mapa-bsas" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.0168881863056!2d-58.384145323430566!3d-34.60373445750052!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4aa9f0a6da5edb%3A0x11bead4e234e558b!2sObelisco!5e0!3m2!1ses-419!2sar!4v1701486787473!5m2!1ses-419!2sar"
-                                width="100%" height="238" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" ></iframe>
+                                width="100%" height="238px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" ></iframe>
                     </div>
                 </div>
             </div>
@@ -240,34 +243,52 @@
                 <div class="col-lg-8 col-xl-7">
                     <h2 class="titulo-gral">Conviértete en un <span>orador</span></h2>
                     <p class="text-center">Anótate como orador para dar una <abbr title="attribute">charla ignite</abbr>. Cuéntanos de qué quieres hablar!</p>
-                    <form action="https://formsubmit.co/jle36@hotmail.com" method="POST" target="_blank">
+                    <form action="RegisterOradores" method="post">
                         <div class="row gx-2">
                             <div class="col-md mb-3">
-                                <input class="form-control" type="text" placeholder="Nombre" aria-label="Nombre" required>
+                                <input class="form-control" type="text" name="nombre" placeholder="Nombre" aria-label="Nombre" required>
                             </div>
                             <div class="col-md mb-3">
-                                <input class="form-control" type="text" placeholder="Apellido" aria-label="Apellido" required>
+                                <input class="form-control" type="text" name="apellido" placeholder="Apellido" aria-label="Apellido" required>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col mb-3">
-                                <input class="form-control" type="email" placeholder="Email" aria-label="Email" required>
+                                <input class="form-control" type="email" name="email" placeholder="Email" aria-label="Email" required>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col mb-3">
-                                <textarea class="form-control" id="exampleFormControlTextarea1" type="text" rows="4" placeholder="¿Sobre qué quieres hablar?" aria-label="Email" required>
+                                <textarea class="form-control" name="temario" id="exampleFormControlTextarea1" type="text" rows="4" placeholder="¿Sobre qué quieres hablar?" aria-label="Temario" required>
                                 </textarea>
                                 <div id="emailHelp" class="form-text mb-3">Recuerda incluir un título para tu charla.</div>
                                 <div class="d-grid">
                                     <button type="submit" class="btn btn-lg btn-form" title="Clic para enviar el mail">Enviar</button>
+                                </div>
+                                <!-- Agrega esto donde quieras mostrar el mensaje -->
+                                <div id="mensajeRegistro" style="display:none;">
+                                    <p class="orador-exitoso" style='color: blue;'>Registro de oradores exitoso!!!.</p>
                                 </div>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
+
         </section>
+
+        <!-- Muestra el mensaje de registro oradores exitoso, cuando la página se carga -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                var mensajeRegistro = document.getElementById("mensajeRegistro");
+                mensajeRegistro.style.display = "block";
+
+                // Oculta el mensaje después de 6000 milisegundos (6 segundos)
+                setTimeout(function() {
+                    mensajeRegistro.style.display = "none";
+                }, 6000);
+            });
+        </script>
 
     </main>
 
