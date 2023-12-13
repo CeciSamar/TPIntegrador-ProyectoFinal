@@ -1,0 +1,40 @@
+Base de Datos: cac23546
+
+
+TABLA users
+
+CREATE TABLE cac23546.users (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(60) NOT NULL,
+    apellido VARCHAR(60) NOT NULL,
+    telefono VARCHAR(20) NOT NULL,
+    email VARCHAR(60) NOT NULL,
+    password VARCHAR(30) NOT NULL
+);
+
+
+
+TABLA ventatickets
+
+CREATE TABLE cac23546.ventatickets (
+    id_tickets INT PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(60) NOT NULL,
+    apellido VARCHAR(60) NOT NULL,
+    email VARCHAR(60) NOT NULL,
+    cantidad INT NOT NULL,
+    categoria VARCHAR(30) NOT NULL,
+    total FLOAT NOT NULL
+);
+
+
+
+TABLA oradores
+
+CREATE TABLE cac23546.oradores (
+    id_orador INT PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(60) NOT NULL,
+    apellido VARCHAR(60) NOT NULL,
+    email VARCHAR(60) NOT NULL,
+    temario VARCHAR(160) NOT NULL,
+    fechaenvio TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
