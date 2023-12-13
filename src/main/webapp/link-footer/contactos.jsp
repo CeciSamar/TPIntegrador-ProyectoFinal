@@ -31,7 +31,7 @@
 </head>
 <body>
     <header>
-        <h1>Preguntas Frecuentes</h1>
+        <h1>Contactos</h1>
     </header>
     <section>
         <h2>Información de Contacto</h2>

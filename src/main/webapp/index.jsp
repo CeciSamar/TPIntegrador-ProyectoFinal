@@ -10,6 +10,7 @@
 <body>
     <jsp:include page="header.jsp"/>
     <main>
+
         <div id="myCarousel" class="carousel slide mb-4" data-bs-ride="carousel">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true"
@@ -226,7 +227,7 @@
         </section>
 
         <script>
-            // Obtener el elemento del iframe
+            // Obtener el elemento del iframe con Javascript
             var iframe = document.getElementById('mapa-bsas');
 
             // Desactivar el evento de zoom en el iframe, para que no se salga fuera de la caja al hacer zoom
@@ -267,7 +268,7 @@
                                 </div>
                                 <!-- Agrega esto donde quieras mostrar el mensaje -->
                                 <div id="mensajeRegistro" style="display:none;">
-                                    <p class="orador-exitoso" style='color: blue;'>Registro de oradores exitoso!!!.</p>
+                                    <p class="orador-exitoso" style='color: blue;'>Registro oradores exitoso!!!</p>
                                 </div>
                             </div>
                         </div>

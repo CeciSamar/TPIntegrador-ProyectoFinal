@@ -24,6 +24,7 @@
 
         .bsas {
             margin-right: 1.2rem;
+            border-radius: 8px;
             transition: 0.4s;
         }
 
